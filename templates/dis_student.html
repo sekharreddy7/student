@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mdb.css' %}">
+</head>
+<body>
+    <center>
+    <button type="button" class="btn btn-primary">sign up</button>
+    <button type="button" class="btn btn-primary">forgot password</button>
+        <h1>display students data</h1>
+        {% if students %}
+        <table border="1px">
+            <tr>
+                <th>name</th>
+                <th>date</th>
+            </tr>
+            {% for i in students %}
+                <tr>
+                    <td>{{i.name}}</td>
+                    <td>{{i.date}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <h1>no data</h1>
+        {% endif %}
+        <h1><a href="{% url 'dis_admin' %}">go to admi file</a></h1>
+
+    </center>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/poppers.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/mdb.js' %}"></script>
+    
+</body>
+</html>
